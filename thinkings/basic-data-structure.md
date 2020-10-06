@@ -30,7 +30,7 @@
 
 Hooks 的本质就是一个数组， 伪代码：
 
-![basic-data-structure-hooks.png](../assets/thinkings/basic-data-structure-hooks.png)
+![basic-data-structure-hooks.png](https://tva1.sinaimg.cn/large/007S8ZIlly1ghlugmr673j30m80bsq3j.jpg)
 
 那么为什么 hooks 要用数组？ 我们可以换个角度来解释，如果不用数组会怎么样？
 
@@ -108,7 +108,7 @@ React 将`如何确保组件内部hooks保存的状态之间的对应关系`这�
 
 这就好像我们在等红绿灯，即使旁边绿灯亮了，你的这个车道是红灯，你还是不能走，还是要等着。
 
-![basic-data-structure-queue-1](../assets/thinkings/basic-data-structure-queue-1.png)
+![basic-data-structure-queue-1](https://tva1.sinaimg.cn/large/007S8ZIlly1ghlugoaepnj30gf0e2dgm.jpg)
 
 `HTTP/1.0` 和 `HTTP/1.1`:  
 在`HTTP/1.0` 中每一次请求都需要建立一个 TCP 连接，请求结束后立即断开连接。
@@ -118,13 +118,13 @@ React 将`如何确保组件内部hooks保存的状态之间的对应关系`这�
 
 如果用图来表示的话，过程大概是：
 
-![basic-data-structure-queue-2](../assets/thinkings/basic-data-structure-queue-2.png)
+![basic-data-structure-queue-2](https://tva1.sinaimg.cn/large/007S8ZIlly1ghlugpil19j31210d83zr.jpg)
 
 `HTTP/2` 和 `HTTP/1.1`:
 
 为了解决`HTTP/1.1`中的服务端队首阻塞，`HTTP/2`采用了`二进制分帧` 和 `多路复用` 等方法。  
 `二进制分帧`中，帧是`HTTP/2`数据通信的最小单位。在`HTTP/1.1`数据包是文本格式，而`HTTP/2`的数据包是二进制格式的，也就是二进制帧。采用帧可以将请求和响应的数据分割得更小，且二进制协议可以更高效解析。`HTTP/2`中，同域名下所有通信都在单个连接上完成，该连接可以承载任意数量的双向数据流。每个数据流都以消息的形式发送，而消息又由一个或多个帧组成。多个帧之间可以乱序发送，根据帧首部的流标识可以重新组装。
-`多路复用`用以替代原来的序列和拥塞机制。在`HTTP/1.1`中，并发多个请求需要多个 TCP 链接，且单个域名有 6-8 个 TCP 链接请求限制。在`HHTP/2`中，同一域名下的所有通信在单个链接完成，仅占用一个 TCP 链接，且在这一个链接上可以并行请求和响应，互不干扰。
+`多路复用`用以替代原来的序列和拥塞机制。在`HTTP/1.1`中，并发多个请求需要多个 TCP 链接，且单个域名有 6-8 个 TCP 链接请求限制。在`HTTP/2`中，同一域名下的所有通信在单个链接完成，仅占用一个 TCP 链接，且在这一个链接上可以并行请求和响应，互不干扰。
 
 > [此网站](https://http2.akamai.com/demo)可以直观感受`HTTP/1.1`和`HTTP/2`的性能对比。
 
@@ -144,7 +144,7 @@ pop, 移除栈最顶端(末尾)的元素.
 
 栈的 push 和 pop 操作的示意:
 
-![basic-data-structure-stack](../assets/thinkings/basic-data-structure-stack.png)
+![basic-data-structure-stack](https://tva1.sinaimg.cn/large/007S8ZIlly1ghlugqxx3sj30lh0f074v.jpg)
 
 (图片来自 https://github.com/trekhleb/javascript-algorithms/blob/master/src/data-structures/stack/README.zh-CN.md)
 
@@ -169,9 +169,9 @@ foo();
 
 真正执行的时候，内部大概是这样的：
 
-![basic-data-structure-call-stack](../assets/thinkings/basic-data-structure-call-stack.png)
+![basic-data-structure-call-stack](https://tva1.sinaimg.cn/large/007S8ZIlly1ghlugru58jj30v70hi0u8.jpg)
 
-> 我画的图没有画出执行上下文中其他部分（this 和 scope 等）， 这部分是闭包的关键，而我这里不是将闭包的，是为了讲解栈的。
+> 我画的图没有画出执行上下文中其他部分（this 和 scope 等）， 这部分是闭包的关键，而我这里不是讲闭包的，是为了讲解栈的。
 
 > 社区中有很多“执行上下文中的 scope 指的是执行栈中父级声明的变量”说法，这是完全错误的， JS 是词法作用域，scope 指的是函数定义时候的父级，和执行没关系
 
@@ -194,7 +194,7 @@ foo();
 
 fiber 出现的目的其实是为了解决 react 在执行的时候是无法停下来的，需要一口气执行完的问题的。
 
-![fiber-intro](../assets/thinkings/basic-data-structure-fiber-intro.png)
+![fiber-intro](https://tva1.sinaimg.cn/large/007S8ZIlly1ghlugunkhdj30rc0c0wez.jpg)
 
 图片来自 Lin Clark 在 ReactConf 2017 分享
 
@@ -249,28 +249,20 @@ return, children, sibling 也都是一个 fiber，因此 fiber 看起来就是�
 
 ## 非线性结构
 
-那么有了线性结构，我们为什么还需要非线性结构呢？ 答案是为了高效地兼顾静态操作和动态操作。
-大家可以对照各种数据结构的各种操作的复杂度来直观感受一下。
+那么有了线性结构，我们为什么还需要非线性结构呢？ 答案是为了高效地兼顾静态操作和动态操作。大家可以对照各种数据结构的各种操作的复杂度来直观感受一下。
 
 ### 树
 
-树的应用同样非常广泛，小到文件系统，大到因特网，组织架构等都可以表示为树结构，
-而在我们前端眼中比较熟悉的 DOM 树也是一种树结构，而 HTML 作为一种 DSL 去描述这种树结构的具体表现形式。
+树的应用同样非常广泛，小到文件系统，大到因特网，组织架构等都可以表示为树结构，而在我们前端眼中比较熟悉的 DOM 树也是一种树结构，而 HTML 作为一种 DSL 去描述这种树结构的具体表现形式。如果你接触过 AST，那么 AST 也是一种树，XML 也是树结构。。。树的应用远比大多数人想象的要得多。
 
 树其实是一种特殊的`图`，是一种无环连通图，是一种极大无环图，也是一种极小连通图。
 
 从另一个角度看，树是一种递归的数据结构。而且树的不同表示方法，比如不常用的`长子 + 兄弟`法，对于
 你理解树这种数据结构有着很大用处， 说是一种对树的本质的更深刻的理解也不为过。
 
-树的基本算法有前中后序遍历和层次遍历，有的同学对前中后这三个分别具体表现的访问顺序比较模糊，
-其实当初我也是一样的，后面我学到了一点，你只需要记住：`所谓的前中后指的是根节点的位置，其他位置按照先左后右排列即可`。
-比如前序遍历就是`根左右`, 中序就是`左根右`，后序就是`左右根`， 很简单吧？
+树的基本算法有前中后序遍历和层次遍历，有的同学对前中后这三个分别具体表现的访问顺序比较模糊，其实当初我也是一样的，后面我学到了一点，你只需要记住：`所谓的前中后指的是根节点的位置，其他位置按照先左后右排列即可`。比如前序遍历就是`根左右`, 中序就是`左根右`，后序就是`左右根`， 很简单吧？
 
-我刚才提到了树是一种递归的数据结构，因此树的遍历算法使用递归去完成非常简单，
-幸运的是树的算法基本上都要依赖于树的遍历。 但是递归在计算机中的性能一直都有问题，
-因此掌握不那么容易理解的"命令式地迭代"遍历算法在某些情况下是有用的。
-
-如果你使用迭代式方式去遍历的话，可以借助上面提到的`栈`来进行，可以极大减少代码量。
+我刚才提到了树是一种递归的数据结构，因此树的遍历算法使用递归去完成非常简单，幸运的是树的算法基本上都要依赖于树的遍历。 但是递归在计算机中的性能一直都有问题，因此掌握不那么容易理解的"命令式地迭代"遍历算法在某些情况下是有用的。如果你使用迭代式方式去遍历的话，可以借助上面提到的`栈`来进行，可以极大减少代码量。
 
 > 如果使用栈来简化运算，由于栈是 FILO 的，因此一定要注意左右子树的推入顺序。
 
@@ -278,6 +270,11 @@ return, children, sibling 也都是一个 fiber，因此 fiber 看起来就是�
 
 - 如果树有 n 个顶点，那么其就有 n - 1 条边，这说明了树的顶点数和边数是同阶的。
 - 任何一个节点到根节点存在`唯一`路径, 路径的长度为节点所处的深度
+
+实际使用的树有可能会更复杂，比如使用在游戏中的碰撞检测可能会用到四叉树或者八叉树。以及 k 维的树结构 `k-d 树`等。
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghlugv8xw6j306y06mdft.jpg)
+（图片来自 https://zh.wikipedia.org/wiki/K-d%E6%A0%91）
 
 ### 二叉树
 
@@ -321,7 +318,7 @@ return, children, sibling 也都是一个 fiber，因此 fiber 看起来就是�
 - 在一个 最小堆(min heap) 中, 如果 P 是 C 的一个父级节点, 那么 P 的 key(或 value)应小于或等于 C 的对应值.
   正因为此，堆顶元素一定是最小的，我们会利用这个特点求最小值或者第 k 小的值。
 
-![min-heap](../assets/thinkings/min-heap.png)
+![min-heap](https://tva1.sinaimg.cn/large/007S8ZIlly1ghlugz10gfj30ca07yjro.jpg)
 
 - 在一个 最大堆(max heap) 中, P 的 key(或 value)大于 C 的对应值。
 
@@ -349,7 +346,7 @@ return, children, sibling 也都是一个 fiber，因此 fiber 看起来就是�
 二叉查找树，之所以叫查找树就是因为其非常适合查找，举个例子，
 如下一颗二叉查找树，我们想找节点值小于且最接近 58 的节点，搜索的流程如图所示：
 
-![bst](../assets/thinkings/bst.png)
+![bst](https://tva1.sinaimg.cn/large/007S8ZIlly1ghluh33ttoj30rs0mudhi.jpg)
 （图片来自 https://www.geeksforgeeks.org/floor-in-binary-search-tree-bst/）
 
 另外我们二叉查找树有一个性质是： `其中序遍历的结果是一个有序数组`。
@@ -365,7 +362,7 @@ return, children, sibling 也都是一个 fiber，因此 fiber 看起来就是�
 
 在这里，平衡指所有叶子的深度趋于平衡，更广义的是指在树上所有可能查找的均摊复杂度偏低。
 
-一些数据库引擎内部就是用的这种数据结构。
+一些数据库引擎内部就是用的这种数据结构，其目标也是将查询的操作降低到 logn（树的深度），可以简单理解为`树在数据结构层面构造了二分查找算法`。
 
 基本操作：
 
@@ -381,17 +378,17 @@ return, children, sibling 也都是一个 fiber，因此 fiber 看起来就是�
 
 #### AVL
 
-是最早被发明的自平衡二叉查找树。在 AVL 树中，任一节点对应的两棵子树的最大高度差为 1，因此它也被称为高度平衡树。查找、插入和删除在平均和最坏情况下的时间复杂度都是 {\displaystyle O(\log {n})} O(\log{n})。增加和删除元素的操作则可能需要借由一次或多次树旋转，以实现树的重新平衡。AVL 树得名于它的发明者 G. M. Adelson-Velsky 和 Evgenii Landis，他们在 1962 年的论文 An algorithm for the organization of information 中公开了这一数据结构。 节点的平衡因子是它的左子树的高度减去它的右子树的高度（有时相反）。带有平衡因子 1、0 或 -1 的节点被认为是平衡的。带有平衡因子 -2 或 2 的节点被认为是不平衡的，并需要重新平衡这个树。平衡因子可以直接存储在每个节点中，或从可能存储在节点中的子树高度计算出来。
+是最早被发明的自平衡二叉查找树。在 AVL 树中，任一节点对应的两棵子树的最大高度差为 1，因此它也被称为高度平衡树。查找、插入和删除在平均和最坏情况下的时间复杂度都是 O(logn)。增加和删除元素的操作则可能需要借由一次或多次树旋转，以实现树的重新平衡。AVL 树得名于它的发明者 G. M. Adelson-Velsky 和 Evgenii Landis，他们在 1962 年的论文 An algorithm for the organization of information 中公开了这一数据结构。 节点的平衡因子是它的左子树的高度减去它的右子树的高度（有时相反）。带有平衡因子 1、0 或 -1 的节点被认为是平衡的。带有平衡因子 -2 或 2 的节点被认为是不平衡的，并需要重新平衡这个树。平衡因子可以直接存储在每个节点中，或从可能存储在节点中的子树高度计算出来。
 
 #### 红黑树
 
-在 1972 年由鲁道夫·贝尔发明，被称为"对称二叉 B 树"，它现代的名字源于 Leo J. Guibas 和 Robert Sedgewick 于 1978 年写的一篇论文。红黑树的结构复杂，但它的操作有着良好的最坏情况运行时间，并且在实践中高效：它可以在 {\displaystyle O(\log {n})} O(\log{n})时间内完成查找，插入和删除，这里的 n 是树中元素的数目
+在 1972 年由鲁道夫·贝尔发明，被称为"对称二叉 B 树"，它现代的名字源于 Leo J. Guibas 和 Robert Sedgewick 于 1978 年写的一篇论文。红黑树的结构复杂，但它的操作有着良好的最坏情况运行时间，并且在实践中高效：它可以在 O(logn) 时间内完成查找，插入和删除，这里的 n 是树中元素的数目
 
 ### 字典树(前缀树)
 
 又称 Trie 树，是一种树形结构。典型应用是用于统计，排序和保存大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。它的优点是：利用字符串的公共前缀来减少查询时间，最大限度地减少无谓的字符串比较，查询效率比哈希树高。
 
-![trie](../assets/thinkings/trie.jpg)
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1ghluh7b5gmj30al06q74c.jpg)
 
 (图来自 https://baike.baidu.com/item/%E5%AD%97%E5%85%B8%E6%A0%91/9825209?fr=aladdin)
 它有 3 个基本性质：
@@ -407,6 +404,8 @@ return, children, sibling 也都是一个 fiber，因此 fiber 看起来就是�
 相关算法：
 
 - [208.implement-trie-prefix-tree](../problems/208.implement-trie-prefix-tree.md)
+- [211.add-and-search-word-data-structure-design](../problems/211.add-and-search-word-data-structure-design.md)
+- [212.word-search-ii](../problems/212.word-search-ii.md)
 
 ## 图
 
@@ -437,13 +436,13 @@ return, children, sibling 也都是一个 fiber，因此 fiber 看起来就是�
 
 例如在无向无权图中：
 
-![graph-1](../assets/thinkings/graph-1.png)
+![graph-1](https://tva1.sinaimg.cn/large/007S8ZIlly1ghluh8tbb5j30k00akq48.jpg)
 （图片来自 https://zhuanlan.zhihu.com/p/25498681）
 
 可以看出在无向图中，邻接矩阵关于对角线对称，而邻接链表总有两条对称的边
 而在有向无权图中：
 
-![graph-2](../assets/thinkings/graph-2.png)
+![graph-2](https://tva1.sinaimg.cn/large/007S8ZIlly1ghluhb46urj30k00aq0ux.jpg)
 
 （图片来自 https://zhuanlan.zhihu.com/p/25498681）
 
